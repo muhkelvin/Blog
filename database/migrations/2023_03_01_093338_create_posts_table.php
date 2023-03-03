@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('body');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('categories_id');
+            $table->unsignedBigInteger('categories_id')->nullable();
             $table->timestamps();
             $table->foreign('categories_id')->references('id')->on('categories');
         });

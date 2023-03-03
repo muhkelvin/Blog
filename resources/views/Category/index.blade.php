@@ -100,7 +100,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard.index') }}">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                            Products
+                            Post
                         </a>
                     </li>
                     <li class="nav-item">
@@ -114,47 +114,40 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
-            <a href="{{route('dashboard.create')}}"><button type="button" class="btn btn-primary">Add Post</button></a>
+            <a href="{{route('category.create')}}"><button type="button" class="btn btn-primary">Add Post</button></a>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Slug</th>
-                        <th scope="col">Body</th>
-                        <th scope="col">image</th>
                         <th scope="col">Category</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($posts as $post)
+                    @foreach($categories as $category)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{$post->title}}</td>
-                        <td>{{$post->slug}}</td>
-                        <td>{!! $post->body !!}</td>
-                        <td>{{$post->image}}</td>
-                        <td>{{$post->categories_id}}</td>
-                        <td><a href="{{route('dashboard.edit',$post->id)}}">
+                        <td>{{ $category->nama }}</td>
+
+                        <td><a href="{{route('category.edit',$category->id)}}">
                                 <img src="{{asset('/image/edit.png')}}" alt="" width="23">
                             </a></td>
                         <td>
-                            <form action="{{route('dashboard.destroy',$post->id)}}" method="post">
+                            <form action="{{route('category.destroy',$category->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"><img src="{{asset('image/remove.png')}}" alt="" width="23"></button>
                             </form>
                         </td>
 
-                        <td><a href="{{route('dashboard.show', $post->id)}}">
+                        <td><a href="{{route('category.show', $category->id)}}">
                                 <img src="{{asset('/image/show.png')}}" alt="" width="23">
                             </a></td>
                     </tr>
                     </tbody>
                     @endforeach
                 </table>
-                {{ $posts->links() }}
+                {{ $categories->links() }}
             </div>
         </main>
     </div>
