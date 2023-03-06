@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
         return view('Dashboard.index', [
             "title" => "Dashboard",
-            "posts" => Post::latest()->where('title','like',"%{$request->search}%")->paginate(5),
+            "posts" => Post::with('category')->latest()->where('title','like',"%{$request->search}%")->paginate(5),
         ]);
     }
 

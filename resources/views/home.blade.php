@@ -8,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>kontol</h1>
+        @foreach($posts as $post)
+            <h1>{{ $post->category->nama }}</h1>
+        @endforeach
 </body>
 </html>

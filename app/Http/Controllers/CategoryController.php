@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +13,7 @@ class CategoryController extends Controller
     {
         return view('Category.index',[
             "title" => "Category",
-            "categories" => Category::first(),
+            "categories" => Category::all(),
         ]);
     }
 
@@ -28,6 +29,12 @@ class CategoryController extends Controller
         //
     }
 
+    public function show($id)
+    {
+        return view('Category.show',[
+            "categories" => Category::find($id),
+        ]);
+    }
 
 
     public function edit($id)

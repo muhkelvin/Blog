@@ -124,6 +124,7 @@
                         <th scope="col">Slug</th>
                         <th scope="col">Body</th>
                         <th scope="col">image</th>
+                        <th scope="col">Category_id</th>
                         <th scope="col">Category</th>
                     </tr>
                     </thead>
@@ -136,6 +137,8 @@
                         <td>{!! $post->body !!}</td>
                         <td>{{$post->image}}</td>
                         <td>{{$post->categories_id}}</td>
+                        <td>{{$post->category->nama}}</td>
+
                         <td><a href="{{route('dashboard.edit',$post->id)}}">
                                 <img src="{{asset('/image/edit.png')}}" alt="" width="23">
                             </a></td>
@@ -159,6 +162,8 @@
         </main>
     </div>
 </div>
+
+
 
 
 

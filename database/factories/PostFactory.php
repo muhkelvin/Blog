@@ -17,6 +17,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'categories_id' => 1,
             'title' => fake()->title(),
             'slug' => fake()->slug(),
             'body' => fake()->sentence(),

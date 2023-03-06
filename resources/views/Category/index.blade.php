@@ -127,7 +127,7 @@
                     @foreach($categories as $category)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $category->nama }}</td>
+                        <td><a href="{{route("category.show", $category->id)}}">{{ $category->nama}}</a></td>
 
                         <td><a href="{{route('category.edit',$category->id)}}">
                                 <img src="{{asset('/image/edit.png')}}" alt="" width="23">
@@ -147,7 +147,6 @@
                     </tbody>
                     @endforeach
                 </table>
-                {{ $categories->links() }}
             </div>
         </main>
     </div>
