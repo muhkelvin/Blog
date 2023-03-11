@@ -15,6 +15,7 @@
 
 <div class="container mt-5 ">
     <h3>{{$post->title}}</h3>
+    <img src="{{asset('storage/'.$post->image)}}" alt="" width="50%">
     <h5>{{$post->created_at}}</h5>
     <div>
         <p>{!! $post->body !!}</p>

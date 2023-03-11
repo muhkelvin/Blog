@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,8 @@ class DashboardController extends Controller
     {
         return view('Dashboard.create',[
             "title" => "Create Data",
+            "posts" => Post::all(),
+            "categories" => Category::all(),
 
         ]);
     }
@@ -28,14 +31,29 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+//        dd($request->all());
+//        $newname = '';
+//
+//        if ($request->file('image')){
+//            $extension = $request->file('image')->getClientOriginalExtension();
+//            $newname = $request->name.'-'.now()->timestamp.'.'.$extension;
+//         $request->file('image')->storeAs('photo', $newname);
+//        }
+//        $request['image'] = $newname;
+
+        $validati =$request->validate([
            'title' => ['required'],
            'slug' => ['required'],
            'body' => ['required'],
            'categories_id' => ['required'],
+            'image' => ['image','file']
             ]);
 
-        Post::create($request->all());
+        if ($request->file('image')){
+            $validati['image'] = $request->file('image')->store('photo');
+        }
+
+        Post::create($validati);
         return redirect('dashboard');
     }
 

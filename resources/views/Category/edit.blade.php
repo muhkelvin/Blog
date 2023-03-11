@@ -31,56 +31,20 @@
     <div class="wrapper wrapper--w900">
         <div class="card card-6">
             <div class="card-heading">
-                <h2 class="title">Update Data</h2>
+                <h2 class="title">Create Data</h2>
             </div>
             <div class="card-body">
-                <form action="{{route('dashboard.update', $posts->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('category.update', $categories->id)}}" method="post">
                     @csrf
                     @method('PATCH')
                     <div class="form-row">
-                        <div class="name">Title</div>
+                        <div class="name">Nama</div>
                         <div class="value">
-                            <input class="input--style-6" type="text" name="title" placeholder="Example:Design" value="{{$posts->title}}">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">Slug</div>
-                        <div class="value">
-                            <div class="input-group">
-                                <input class="input--style-6" type="text" name="slug" placeholder="design-grapis" value="{{$posts->slug}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">Categoty</div>
-                        <select class="form-select" aria-label="Default select example" name="categories_id">
-                            <option selected>Select Category</option>
-                            <option value="1">Design</option>
-                            <option value="2">Marketing</option>
-
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">Body</div>
-                        <div class="value">
-                            <div class="input-group">
-                                <textarea id="summernote" name="body">{{$posts->body}}</textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">Im</div>
-                        <div class="value">
-                            <div class="input-group js-input-file">
-                                <input class="input-file" type="file" name="file_cv" id="file">
-                                <label class="label--file" for="file">Choose file</label>
-                                <span class="input-file__info">No file chosen</span>
-                            </div>
-                            <div class="label--desc">Upload your CV/Resume or any other relevant file. Max file size 50 MB</div>
+                            <input class="input--style-6" type="text" name="nama" value="{{$categories->nama}}" placeholder="Example:Design">
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn--radius-2 btn--blue-2" type="submit">Update  Data</button>
+                        <button class="btn btn--radius-2 btn--blue-2" type="submit">Update Data</button>
                     </div>
                 </form>
             </div>

@@ -9,7 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Post extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'body',
+        'image',
+        'categories_id',
+    ];
 
     public function category()
     {
