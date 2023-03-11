@@ -86,7 +86,7 @@
         </form>
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#">Sign out</a>
+            <a class="nav-link px-3" href="/logout">Sign out</a>
         </div>
     </div>
 </header>
@@ -114,7 +114,7 @@
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">
-            <a href="{{route('category.create')}}"><button type="button" class="btn btn-primary">Add Post</button></a>
+            <a href="{{route('category.create')}}"><button type="button" class="btn btn-primary">Add Category</button></a>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -148,6 +148,7 @@
                     @endforeach
                 </table>
             </div>
+            <h2>Selamat Datanag Di halaman Dashboard {{Auth::user()->email}}</h2>
         </main>
     </div>
 </div>

@@ -54,9 +54,9 @@
                         <div class="name">Categoty</div>
                         <select class="form-select" aria-label="Default select example" name="categories_id">
                             <option selected>Select Category</option>
-                            <option value="1">Design</option>
-                            <option value="2">Marketing</option>
-
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}" class="text-danger" >{{$category->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-row">
@@ -68,10 +68,10 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="name">Im</div>
+                        <div class="name">Image</div>
                         <div class="value">
                             <div class="input-group js-input-file">
-                                <input class="input-file" type="file" name="file_cv" id="file">
+                                <input class="input-file" type="file" name="image" id="file">
                                 <label class="label--file" for="file">Choose file</label>
                                 <span class="input-file__info">No file chosen</span>
                             </div>
